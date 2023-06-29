@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {  Validators } from '@angular/forms';
+import { Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
-
 
 
 @Component({
@@ -10,7 +9,10 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./form-user.component.css']
 })
 export class FormUserComponent {
+  [x: string]: any;
   formUser: FormGroup;
+  valid: any;
+
   constructor() {
     this.formUser = new FormGroup({
       firstName: new FormControl('', Validators.required),
@@ -18,8 +20,9 @@ export class FormUserComponent {
       lastName: new FormControl('', Validators.required),
       physicalAdress: new FormControl('', [Validators.required]),
       profession: new FormControl('', Validators.required),
-      phone: new FormControl('',[Validators.required,Validators.pattern(/^\+373\d{8}$/)]),
-})
-}
+      phone: new FormControl('', [Validators.required, Validators.pattern(/^\+373\d{8}$/)])
+    });
+
+  }
 
 }

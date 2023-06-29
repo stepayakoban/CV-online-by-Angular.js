@@ -1,5 +1,8 @@
-<app-form-user></app-form-user>
+<app-form-user #formUser></app-form-user>
 <app-social-media></app-social-media>
-<app-form-education></app-form-education>
-<app-form-job></app-form-job>
-<app-save-profile></app-save-profile>
+<app-form-education #formEducation></app-form-education>
+<app-form-job #formJob></app-form-job>
+
+<button mat-raised-button color="primary" (click)="saveUserData()">Save profile</button>
+<button mat-raised-button color="primary" (click)="switchLanguage('ru')">Russian</button>
+<button mat-raised-button color="primary" (click)="switchLanguage('en')">English</button>

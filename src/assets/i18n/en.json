@@ -1,0 +1,37 @@
+{
+    "socialMedia":{
+      "socialLink": "Add social media"  
+    },
+
+    "userForm":{
+        "firstName":"First Name",
+        "lastName":"Last Name",
+        "errorEmail":" Please enter a valid email address",
+        "phone":"Phone",
+        "physicalAdress":"Physical adress",
+        "profession":"Profession",
+        "errorFirstName":"First Name is required",
+        "errorLastName":"Last Name is required",
+        "errorPhone":"Phone is required or invalid",
+        "errorPhysicalAdress":" Adress is required",
+        "errorProfession":"Profession is required"    
+    },
+    "educationForm":{
+        "addEducation":"Add Education",
+        "educationTitle":"Education Title",
+        "graduateDate":"Graduate Date",
+        "errorEducationTitle":"Education Title is required",
+        "errorGraduateDate":"Graduate date is required",
+        "errorEducationTypes":"Please choose the type of Education"    
+    },
+    "jobForm":{
+        "addJob":"Add Job",
+        "presentTime":"Present Time",
+        "startDate":"Start Date",
+        "endDate":"End Date",
+        "errorCity":"City is required",
+        "errorCompanyName":" Company Name is required",
+        "city":"City",
+        "companyName":"Company Name"    
+    }
+  }

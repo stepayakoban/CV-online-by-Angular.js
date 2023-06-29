@@ -1,22 +1,46 @@
-<div>
- <mat-form-field>
-    <mat-label>Enter a date range</mat-label>
-   
-<input type="date">
-    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-    <mat-date-range-picker #picker></mat-date-range-picker>
-
-  </mat-form-field>
-  
-  <mat-form-field>
-    <mat-label>Enter a date range</mat-label>
-   
-<input type="date">
-    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-    <mat-date-range-picker #picker></mat-date-range-picker>
-
-  </mat-form-field>  
-   
+<div class="container-form-job">
+  <button type="button" (click)="addFormJob()"  mat-icon-button >
+    <mat-icon>+</mat-icon>
+  </button> 
+  <span>{{"jobForm.addJob"| translate}}</span>
+<form [formGroup]="formJob">
+  <fieldset>
+    <legend>Form Job</legend>
+    <div formArrayName="jobForms">
+      <div *ngFor="let jobForm of jobForms.controls; let i = index" [formGroupName]="i">
+        <mat-checkbox (change)="toggleCheckbox(i)">{{"jobForm.presentTime"| translate}}</mat-checkbox>
+        <mat-form-field>
+          <mat-label>{{"jobForm.startDate"| translate}}</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Start Date" formControlName="startDate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{"jobForm.endDate"| translate}}</mat-label>
+          <input matInput [matDatepicker]="picker1" placeholder='{{"jobForm.endDate"| translate}}' formControlName="endDate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+    <mat-form-field>
+      <input id="city" type="text" matInput placeholder='{{"jobForm.city"| translate}}' formControlName="city" required>
+<mat-error *ngIf="formJob.get('city')?.invalid && formJob.get('city')?.touched">
+  {{"jobForm.errorCity"| translate}}
+    </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input id="company-name" type="text" matInput placeholder='{{"jobForm.companyName"| translate}}' formControlName="companyName" required>
+<mat-error *ngIf="formJob.get('companyName')?.invalid && formJob.get('companyName')?.touched">
+  {{"jobForm.errorCompanyName"| translate}}
+    </mat-error>
+    </mat-form-field>
+    <button type="button" (click)="removeFormJob(i)" mat-icon-button><mat-icon>delete_sweep</mat-icon></button>
+      </div>
+      </div>
+   </fieldset>
+  </form>
 </div>
 
   

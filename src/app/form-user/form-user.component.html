@@ -2,46 +2,55 @@
   <form [formGroup]="formUser">
 
     <mat-form-field>
-      <input id="first-name" type="text" matInput placeholder="First Name" formControlName="firstName" required>
-
+      <input id="first-name" type="text" matInput placeholder='{{"userForm.firstName"| translate}}'
+        formControlName="firstName" required>
+      <mat-error *ngIf="formUser.get('firstName')?.invalid && formUser.get('firstName')?.touched">
+        {{"userForm.errorFirstName"| translate}}
+      </mat-error>
     </mat-form-field>
-    <mat-error *ngIf="formUser.get('firstName')?.invalid && formUser.get('firstName')?.touched">
-      First Name is required
-    </mat-error>
+
     <mat-form-field>
-      <input id="last-name" type="text" placeholder="Last Name" formControlName="lastName" required>
-
+      <input id="last-name" type="text" matInput placeholder='{{"userForm.lastName"| translate}}'
+        formControlName="lastName" required>
+      <mat-error *ngIf="formUser.get('lastName')?.invalid && formUser.get('lastName')?.touched">
+        {{"userForm.errorLastName"| translate}}
+      </mat-error>
     </mat-form-field>
-    <mat-error *ngIf="formUser.get('lastName')?.invalid && formUser.get('lastName')?.touched">
-      Last Name is required
-    </mat-error>
+
     <mat-form-field>
       <input id="email" matInput placeholder="pat@example.com" formControlName="email" required>
+      <mat-error *ngIf="formUser.get('email')?.invalid && formUser.get('email')?.touched">
+        {{"userForm.errorEmail"| translate}}
+      </mat-error>
     </mat-form-field>
-    <mat-error *ngIf="formUser.get('email')?.invalid && formUser.get('email')?.touched">
-      Please enter a valid email address
-    </mat-error>
     <mat-form-field>
-      <input id="phone" type="text" placeholder="Phone (+373)" formControlName="phone" required>
-
+      <input matInput id="phone" type="text" placeholder='{{"userForm.phone"| translate}}(+373)'
+       formControlName="phone"
+        required>
+      <mat-error *ngIf="formUser.get('phone')?.invalid && formUser.get('phone')?.touched">
+        {{"userForm.errorPhone"| translate}}
+      </mat-error>
     </mat-form-field>
-    <mat-error *ngIf="formUser.get('phone')?.invalid && formUser.get('phone')?.touched">
-      Phone is required or invalid
-    </mat-error>
+
     <mat-form-field>
-      <input id="physical-adress" type="text" placeholder="Physical Adress" formControlName="physicalAdress" required>
-
+      <input matInput id="physical-adress" type="text"
+       placeholder='{{"userForm.physicalAdress"| translate}}'
+        formControlName="physicalAdress" required>
+      <mat-error *ngIf="formUser.get('physicalAdress')?.invalid &&
+                        formUser.get('physicalAdress')?.touched">
+        {{"userForm.errorPhysicalAdress"| translate}}
+      </mat-error>
     </mat-form-field>
-    <mat-error *ngIf="formUser.get('physicalAdress')?.invalid && formUser.get('physicalAdress')?.touched">
-      Adress is required
-    </mat-error>
+
     <mat-form-field>
-      <input id="profession" type="text" placeholder="Profession" formControlName="profession" required>
-
+      <input matInput id="profession" type="text"
+       placeholder='{{"userForm.profession"| translate}}'
+        formControlName="profession" required>
+      <mat-error *ngIf="formUser.get('profession')?.invalid && formUser.get('profession')?.touched">
+        {{"userForm.errorProfession"| translate}}
+      </mat-error>
     </mat-form-field>
-    <mat-error *ngIf="formUser.get('profession')?.invalid && formUser.get('profession')?.touched">
-      Profession is required
-    </mat-error>
+
 
   </form>
 </div>

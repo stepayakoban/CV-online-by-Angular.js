@@ -1,38 +1,45 @@
 <div class="container">
+  <button (click)="addFormEducation()" type="button"  mat-icon-button>
+    <mat-icon>+</mat-icon>
+  </button> 
+  <span>{{"educationForm.addEducation"| translate}}</span>
+   
   <form [formGroup]="formEducation">
+    <fieldset> 
+      <legend>Education Form</legend>
+      
+      <div formArrayName="educationForms">
+        <div *ngFor="let educationForm of educationForms.controls; let i = index" [formGroupName]="i">
+          <mat-form-field>
+            <input matInput type="text" placeholder='{{"educationForm.educationTitle"| translate}}' formControlName="educationTitle" required>
+           <mat-error *ngIf="educationForm.get('educationTitle')?.invalid && educationForm.get('educationTitle')?.touched">
+            {{"educationForm.errorEducationTitle"| translate}}
+          </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{"educationForm.graduateDate"| translate}}</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="graduateDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker> 
+            <mat-error *ngIf="educationForm.get('graduateDate')?.invalid && educationForm.get('graduateDate')?.touched">
+              {{"educationForm.errorGraduateDate"| translate}}
+          </mat-error>
+          </mat-form-field>
+         
 
-    <mat-form-field>
-      <input id="education-title" type="text" matInput placeholder="Education Title" formControlName="educationTitle"
-        required>
-
-    </mat-form-field>
-    <mat-error *ngIf="formEducation.get('educationTitle')?.invalid && formEducation.get('educationTitle')?.touched">
-      Education Title is required
-    </mat-error>
-    <mat-form-field>
-      <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker">
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-
-    </mat-form-field>
-    <mat-error *ngIf="formEducation.get('graduateDate')?.invalid && formEducation.get('graduateDate')?.touched">
-      Graduate date is required
-    </mat-error>
-    <div><mat-form-field class="education-type">
-        <select id="education-type" aria-placeholder="Education type" formControlName="educationType" required>
-          <option value="bochleor">Bochleor</option>
-          <option value="superior">Superior</option>
-          <option value="lyceum">Lyceum</option>
-
-        </select>
-      </mat-form-field>
-    </div>
-
-    <mat-error *ngIf="formEducation.get('educationType')?.invalid && formEducation.get('educationType')?.touched">
-      Please choose the type of Education
-    </mat-error>
-
+          <mat-form-field class="education-type" appearance="fill">
+            <mat-select formControlName="educationType" required>
+              <mat-option *ngFor="let type of types" [value]="type.value">{{ type.viewValue }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="educationForm.get('educationType')?.invalid && educationForm.get('educationType')?.touched">
+              {{"educationForm.errorEducationTypes"| translate}}
+          </mat-error>
+          </mat-form-field>
+          
+          <button type="button" (click)="removeEducationForm(i)" mat-icon-button><mat-icon>delete_sweep</mat-icon></button>
+        </div>
+      </div>
+    </fieldset>
   </form>
 </div>

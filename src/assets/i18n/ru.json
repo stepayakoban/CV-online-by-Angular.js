@@ -1,0 +1,42 @@
+{
+    "socialMedia":{
+  "socialLink":"Добавить социальную сеть"
+  },
+  "userForm":{
+    "firstName":"Имя",
+    "lastName":"Фамилия",
+    "errorEmail":" Пожалуйста, введите действительный адрес электронной почты",
+    "phone":"Телефон",
+    "physicalAdress":"Физический адрес",
+    "profession":"Профессия",
+    "errorFirstName":"Имя обязательно",
+    "errorLastName":"Фамилия обязательна",
+    "errorPhone":"Номер телефона требуется или недействителен",
+    "errorPhysicalAdress":"Адрес обязателен",
+    "errorProfession":"Профессия необходима"
+  
+    
+},
+"educationForm":{
+    "addEducation":"Добавить образование",
+    "educationTitle":"Название образования",
+    "graduateDate":"Дата окончания",
+    "errorEducationTitle":"Название образования обязательно",
+    "errorGraduateDate":"Дата выпуска обязательна",
+    "errorEducationTypes":"Пожалуйста, выберите тип образования"
+  
+    
+},
+"jobForm":{
+    "addJob":"Добавить работу",
+    "presentTime":"Настоящее время",
+    "startDate":"Дата начала работы",
+    "endDate":"Дата окончания работы",
+    "errorCity":"Город требуется",
+    "errorCompanyName":"Название компании обязательно",
+    "city":"Город",
+    "companyName":"Название компании"
+  
+    
+}
+}

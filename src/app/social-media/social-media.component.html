@@ -1,10 +1,26 @@
 <div>
-  <mat-form-field>
-    <mat-label>Enter a date range</mat-label>
-   
-<input type="text" placeholder="https://...">
+  <button  type="button" (click)="addSocialForm()"  mat-icon-button>
+    <mat-icon>+</mat-icon> 
+    
+  </button> 
+ <span>{{"socialMedia.socialLink"| translate}}</span>
+ <div>
+  <form [formGroup]="socialMediaForm">
+    <div formArrayName="socialLinks">
+    <div *ngFor="let socialLink of socialLinks.controls; let i = index" [formGroupName]="i">
+   <mat-form-field>
+<input formControlName="socialLink" id="social-link" matInput type="text" placeholder="https://...">
 
-  </mat-form-field>  
-</div>
+  </mat-form-field> 
+  
+    <button type="button" (click)="removeSocialForm(i)" mat-icon-button><mat-icon>delete_sweep</mat-icon></button>
+  
+    </div>
+  </div>
+ </form>
+ </div>
+ 
+ 
+
 
 
